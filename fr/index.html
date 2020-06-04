@@ -14,6 +14,7 @@
     <section id="header">
 
         <!-- Logo -->
+        <img src="images/favicon.svg" width="5%" height="5%"/>
         <h1><a href="index.html">Agassi Wong</a></h1>
 
         <!-- Nav -->
@@ -21,7 +22,7 @@
             <ul>
                 <li class="current"><a href="index.html">Accueil</a></li>
                 <li><a href="resume.html">Curiculum Vitae</a></li>
-                <li><a href="projects.html">Projets</a></li>
+                <li><a href="projects.html">Portfolio</a></li>
                 <li><a href="no-sidebar.html">NSB</a></li>
                 <li><a href="left-sidebar.html">LSB</a></li>
                 <li><a href="right-sidebar.html">RSB</a></li>
@@ -71,8 +72,6 @@
                 <ul class="actions">
                     <li><a href="#" class="button large">Get Started</a></li>
                     <li><a href="#" class="button alt large">Learn More</a></li>
-                    <textarea id="mainText" placeholder="Enter text here ..."></textarea>
-                    <button id="submitBtn" onclick="submitClick()">TEST</button>
                 </ul>
             </footer>
         </section>
@@ -340,24 +339,6 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
-
-<script>
-    var firebaseConfig = {
-        apiKey: "AIzaSyCbr4GHUl4uN9Rpy_1Q7TdMV0IwYO3ivTA",
-        authDomain: "agassiwongonline.firebaseapp.com",
-        databaseURL: "https://agassiwongonline.firebaseio.com",
-        storageBucket: "agassiwongonline.appspot.com",
-    };
-    firebase.initializeApp(firebaseConfig);
-
-    var database = firebase.database();
-</script>
-
-<script src="scripts/custom.js"></script>
 
 </body>
 </html>
