@@ -184,7 +184,7 @@ body a:hover
 
 .section-content-holder
 {   
-    background: #fff;
+    background: #fbfbfb; /* FFF */
     width: 800px;
     padding: 60px 0;
 }
@@ -357,6 +357,7 @@ h1.big-title
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     padding-bottom: 10px;
+    font-weight: bold;
 }
 
 /* END SERVICE SECTION */
