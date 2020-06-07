@@ -3,11 +3,118 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | TLO2D (Save)</title>
+    <title>Unity WebGL Player | The Last One 2D - Remastered</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      body {
+        background-image: url('../../images/jungle.jpg');
+      }
+      html, body {
+        height: 100%;
+        margin: 0 auto;
+        background: DarkSeaGreen;
+      }
+      
+      #container {
+        text-align: center;
+        height: 100%;
+      }
+      
+      .button {
+        color: #333;
+        border-color: #ccc;
+        font-size: 14px;
+        font-weight: 400;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        padding: 6px 12px;
+      }
+      .info {
+        padding: 20px;
+      }
+      .error {
+        font-weight: bold;
+        font-size: 20px;
+        padding: 20px;
+      }
+      iframe {
+        margin: 20px;
+        width: 300px;
+        height: 300px;
+      }
+      .button {
+        background-color: tomato;
+      }
+    </style>
   </head>
   <body>
-    <iframe src="https://i.simmer.io/@AgassiWong/the-last-one-2d" style="width:1728px;height:972px"></iframe>
+
+      <div id="container" >
+        <iframe src="https://i.simmer.io/@AgassiWong/tlo2d" style="width:960px;height:600px"></iframe>
+        <div>
+          <button class="button btn-style">Full Screen Mode</button>
+        </div>
+      </div>
+
+    <script>
+      var button = document.querySelector('#container .button');
+button.addEventListener('click', fullscreen);
+// when you are in fullscreen, ESC and F11 may not be trigger by keydown listener. 
+// so don't use it to detect exit fullscreen
+document.addEventListener('keydown', function (e) {
+  console.log('key press' + e.keyCode);
+});
+// detect enter or exit fullscreen mode
+document.addEventListener('webkitfullscreenchange', fullscreenChange);
+document.addEventListener('mozfullscreenchange', fullscreenChange);
+document.addEventListener('fullscreenchange', fullscreenChange);
+document.addEventListener('MSFullscreenChange', fullscreenChange);
+
+function fullscreen() {
+  // check if fullscreen mode is available
+  if (document.fullscreenEnabled || 
+    document.webkitFullscreenEnabled || 
+    document.mozFullScreenEnabled ||
+    document.msFullscreenEnabled) {
+    
+    // which element will be fullscreen
+    var iframe = document.querySelector('#container iframe');
+    // Do fullscreen
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen();
+    } else if (iframe.webkitRequestFullscreen) {
+      iframe.webkitRequestFullscreen();
+    } else if (iframe.mozRequestFullScreen) {
+      iframe.mozRequestFullScreen();
+    } else if (iframe.msRequestFullscreen) {
+      iframe.msRequestFullscreen();
+    }
+  }
+  else {
+    document.querySelector('.error').innerHTML = 'Your browser is not supported';
+  }
+}
+
+function fullscreenChange() {
+  if (document.fullscreenEnabled ||
+       document.webkitIsFullScreen || 
+       document.mozFullScreen ||
+       document.msFullscreenElement) {
+    console.log('enter fullscreen');
+  }
+  else {
+    console.log('exit fullscreen');
+  }
+  // force to reload iframe once to prevent the iframe source didn't care about trying to resize the window
+  // comment this line and you will see
+  //  var iframe = document.querySelector('iframe');
+  //  iframe.src = iframe.src;
+}
+    </script>
   </body>
 </html>
