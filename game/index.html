@@ -79,7 +79,7 @@
         <button class="button btn btn-style" onclick="downloadForWindows()">
           &nbsp;Télécharger pour Windows&nbsp;
         </button>
-        <button class="button btn btn-style">
+        <button class="fullscreen button btn btn-style">
           &nbsp;Plein Ecran&nbsp;
         </button>
       </div>
@@ -89,7 +89,7 @@
         window.open('download/media.exe')
       }
 
-      var button = document.querySelector('#container .button');
+      var button = document.querySelector('#container .fullscreen');
 button.addEventListener('click', fullscreen);
 // when you are in fullscreen, ESC and F11 may not be trigger by keydown listener. 
 // so don't use it to detect exit fullscreen
